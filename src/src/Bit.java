@@ -33,14 +33,19 @@ public class Bit {
         return value <= 0 ? 0 : 1;
     }
 
-    public static void printBits(Bit[] bits) {
+    public static void printBits(Bit[] bits, boolean newLine) {
         for (Bit bit : bits) {
             System.out.print(bit.toString());
         }
-        System.out.println("");
+        System.out.print(" ");
+        if(newLine) System.out.println("");
+    }
+    
+    public static void printBits(Bit[] bits){
+        printBits(bits, true);
     }
 
-    public static void printHex(Bit[] bits) {
+    public static void printHex(Bit[] bits, boolean newLine) {
         if (bits.length < 8 || bits.length % 8 != 0) {
             System.out.println("[FEHLER @ Bit.printHex]");
             System.exit(1);
@@ -62,7 +67,15 @@ public class Bit {
             hex += Integer.toHexString(bin);
         }
         
-        System.out.println(hex);
+        if(newLine){
+            System.out.println(hex);
+        } else {
+            System.out.print(hex + " ");
+        }
+    }
+    
+    public static void printHex(Bit[] bits){
+        printHex(bits, true);
     }
 
 }
