@@ -1,4 +1,4 @@
-package src;
+
 
 /** Class representing a Bit object.
  * 
