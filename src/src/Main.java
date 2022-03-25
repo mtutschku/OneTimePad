@@ -2,7 +2,16 @@ package src;
 
 import java.util.Scanner;
 
+/** Main class */
 public class Main {
+    
+    /** main method
+     * 
+     * User is asked for text to be encrypted and afterwards decrypted again.
+     * Both steps are shown on the output.
+     * 
+     * @param args command line arguments
+     */
     public static void main(String[] args) {
         
         Scanner scanner = new Scanner(System.in);
