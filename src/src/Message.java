@@ -6,7 +6,7 @@ public class Message {
     
     public Message(String text) {
         if(text.isEmpty()){
-            System.out.println("[WARNUNG @ Message.Message] Kein Text vorhanden. 8 Bits werden auf 0 gesetzt");
+            System.out.println("[WARNING @ Message.Message] Empty text. Initializing with 8 bits, all zero");
             bits = new Bit[8];
             for(int i = 0; i < bits.length; i++){
                 bits[i] = new Bit();
@@ -18,7 +18,7 @@ public class Message {
     
     public Message(Bit[] bits){
         if(bits.length < 8 || bits.length % 8 != 0){
-            System.out.println("[FEHLER @ Message.Message] bits hat eine ungültige Länge");
+            System.out.println("[ERROR @ Message.Message] Invalid length for bits");
             System.exit(1);
         } else {
             this.bits = bits;
@@ -34,7 +34,7 @@ public class Message {
             String bitString = Integer.toBinaryString(ch);
             String str8 = "";
             if(bitString.length() > 8){
-                System.out.println("[FEHLER @ Message.initBits] bitString.length > 8.");
+                System.out.println("[ERROR @ Message.initBits] bitString.length > 8. Text maybe contains invalid chars");
                 System.exit(1);
             } else if(bitString.length() == 8){
                 // nichts muss geändert werden
@@ -51,14 +51,14 @@ public class Message {
         }
         
         if(bits.length != full.length()){
-            System.out.println("[FEHLER @ Message.initBits] bits.length != full.length");
+            System.out.println("[ERROR @ Message.initBits] bits.length != full.length");
             System.exit(1);
         }
         
         for(int i = 0; i < bits.length; i++){
             int value = full.charAt(i) - 48;
             if(value != 0 && value != 1){
-                System.out.println("[FEHLER @ Message.initBits] Ungültiger Wert für value");
+                System.out.println("[ERROR @ Message.initBits] Invalid char value");
                 System.exit(1);
             }
             bits[i] = new Bit(value);

@@ -27,7 +27,7 @@ public class Bit {
 
     private int clamp(int value) {
         if (value != 0 && value != 1) {
-            System.out.println("[WARNUNG @ Bit.clamp] Ungültiger Wert (" + value + ") wurde gekappt");
+            System.out.println("[WARNING @ Bit.clamp] Invalid value for bit (" + value + ") has been clamped");
         }
 
         return value <= 0 ? 0 : 1;
@@ -47,7 +47,7 @@ public class Bit {
 
     public static void printHex(Bit[] bits, boolean newLine) {
         if (bits.length < 8 || bits.length % 8 != 0) {
-            System.out.println("[FEHLER @ Bit.printHex]");
+            System.out.println("[ERROR @ Bit.printHex] Invalid length of bits");
             System.exit(1);
         }
 
@@ -57,7 +57,7 @@ public class Bit {
         }
 
         String hex = "";
-        String tmp = "";
+        String tmp;
         for (int i = 0; i < str.length(); i += 4) {
             tmp = "";
             for (int j = 0; j < 4; j++) {
